@@ -14,4 +14,3 @@ const db = new Prisma({
 // console.log(db);
 
 module.exports = db;
-
