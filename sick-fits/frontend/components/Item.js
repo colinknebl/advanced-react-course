@@ -5,6 +5,7 @@ import fromatMoney from '../lib/formatMoney';
 import Title from './styles/Title';
 import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
+import DeleteItem from './DeleteItem';
 
 class Item extends Component {
 	render() {
@@ -34,7 +35,7 @@ class Item extends Component {
 						<a>Edit ✏️</a>
 					</Link>
 					<button>Add to cart 🛒</button>
-					<button>Delete</button>
+					<DeleteItem id={item.id}>Delete this item</DeleteItem>
 				</div>
 			</ItemStyles>
 		);

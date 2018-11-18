@@ -43,4 +43,6 @@
 
 1. write mutation outside of the class
 2. add Mutation component to jsx, passing it the mutation and variables (e.x. mutation={CREATE_ITEM_MUTATION} variables={this.state})
-3. NOTE: the only child of a Mutation component can be a function with 2 arguments, the mutation and a 'payload. the payload includes loading and error (as well as other things)
+3. NOTE: the only child of a Mutation component can be a function with 2 arguments, the mutation and a 'payload. the payload includes loading and error (as well as other things) - the jsx that needs access to the qgl mutation goes within this function.
+
+# To set up a mutation and query on the same page, see UpdateItem.js
