@@ -1,5 +1,19 @@
 # import * from './generated/prisma.graphql'
 
+# These Mutations and Queries are the public facing GraphQL API.
+# 	aka - what the client side JS will be calling
+
+type SuccessMessage {
+	message: String
+}
+
+type User {
+	id: ID!
+	name: String!
+	email: String!
+	permissions: [Permission!]!
+}
+
 type Mutation {
 	createItem(
 		title: String
@@ -7,10 +21,20 @@ type Mutation {
 		price: Int
 		image: String
 		largeImage: String
-	): Item! # returns the item
+	): Item!
 	updateItem(id: ID!, title: String, description: String, price: Int): Item!
 	# deleteItem(where: ItemWhereUniqueInput!): Item
 	deleteItem(id: ID!): Item
+	signup(email: String!, password: String!, name: String!): User!
+	signin(email: String!, password: String!): User!
+	signout: SuccessMessage
+	requestReset(email: String!): SuccessMessage
+	resetPassword(
+		resetToken: String!
+		password: String!
+		confirmPassword: String!
+	): User!
+	updatePermissions(userId: ID!, permissions: [Permission]): User
 }
 
 type Query {
@@ -22,4 +46,7 @@ type Query {
 	): [Item]!
 	item(where: ItemWhereUniqueInput!): Item
 	itemsConnection(where: ItemWhereInput): ItemConnection!
+	user(where: UserWhereUniqueInput!): User
+	me: User
+	users: [User]!
 }

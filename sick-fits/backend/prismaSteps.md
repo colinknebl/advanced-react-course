@@ -41,6 +41,7 @@ update variables.env
 
 ## What are all of these files for?
 
--   datamodel.graphql is for the backend
--   prisma.graphql is generated based off datamodel.graphql
--   schema.graphql is public facing API - what we will be interfacing with in our JS
+-   datamodel.graphql is for the backend, used to specify the data models
+-   prisma.graphql is generated based off datamodel.graphql (automatically generated - includes all the types, enums, queries, mutations, etc.)
+-   schema.graphql is public facing API - what we will be interfacing with in our client side JS
+-   resolvers/Mutation.js and Query.js is the middleware that sits between the API and the database
