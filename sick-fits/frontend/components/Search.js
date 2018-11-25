@@ -24,12 +24,16 @@ const SEARCH_ITEMS_QUERY = gql`
 `;
 
 function routeToItem(item) {
-	Router.push({
-		pathname: '/item',
-		query: {
-			id: item.id
+	Router.push(
+		{
+			pathname: '/item',
+			query: {
+				id: item.id
+			}
 		}
-	});
+		// this is how the url will look
+		// `item/${item.id}`
+	);
 }
 
 class AutoComplete extends React.Component {
